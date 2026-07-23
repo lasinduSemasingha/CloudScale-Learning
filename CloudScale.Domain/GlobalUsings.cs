@@ -1,0 +1,1 @@
+﻿global using CloudScale.Domain.Common;
