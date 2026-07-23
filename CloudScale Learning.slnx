@@ -1,4 +1,7 @@
 <Solution>
+  <Project Path="CloudScale.Application/CloudScale.Application.csproj" Id="def2b96e-d383-4b7a-8d11-d5f888f3a546" />
+  <Project Path="CloudScale.Domain/CloudScale.Domain.csproj" Id="6ed0ffd1-669a-4b34-b8e4-f9ef4961df04" />
+  <Project Path="CloudScale.Infrastructure/CloudScale.Infrastructure.csproj" Id="a3263dd2-1bbf-4f28-a33a-431705e2c855" />
   <Project Path="CloudScale.WebAPI/CloudScale.WebAPI.csproj" Id="f2071f12-4cf5-40e6-84c1-889709dff9f9" />
   <Project Path="docker-compose.dcproj">
     <Build />
