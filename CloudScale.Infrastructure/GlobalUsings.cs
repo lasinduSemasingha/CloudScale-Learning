@@ -1,0 +1,11 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using CloudScale.Domain.Entities;
+global using CloudScale.Application.Interfaces.Repositories;
+global using CloudScale.Infrastructure.Data;
+global using CloudScale.Infrastructure.Common.Repository;
+global using CloudScale.Application.Interfaces.Services;
+global using Microsoft.AspNetCore.Identity;
+global using CloudScale.Infrastructure.Repositories;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using CloudScale.Application.Interfaces;

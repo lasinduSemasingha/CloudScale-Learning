@@ -1,6 +1,6 @@
 services:
-  catalogdb:
-    container_name: catalogdb
+  cloudscaledb:
+    container_name: CloudScaleDB
     image: postgres:17  # or pin to a specific version you want
     environment:
       - POSTGRES_USER=postgres
@@ -10,7 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_catalog:/var/lib/postgresql
+      - postgres_cloudscale:/var/lib/postgresql
 
 volumes:
-  postgres_catalog:
+  postgres_cloudscale:
