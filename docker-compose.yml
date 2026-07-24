@@ -1,6 +1,6 @@
 services:
-  catalogdb:
+  cloudscaledb:
    image: postgres
 
 volumes:
- postgres_catalog:
+ postgres_cloudscale:

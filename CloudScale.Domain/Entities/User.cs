@@ -5,4 +5,21 @@ public class User : BaseEntity
     public string PasswordHash { get; private set; } = string.Empty;
     public string DisplayName { get; private set; } = string.Empty;
     public DateTime CreatedAtUtc { get; private set; }
+
+    public void SetEmail(string email)
+    {
+        Email = email;
+    }
+    public void SetPasswordHash(string passwordHash)
+    {
+        PasswordHash = passwordHash;
+    }
+    public void SetDisplayName(string displayName)
+    {
+        DisplayName = displayName;
+    }
+    public void SetCreatedAtUtc(DateTime createdAtUtc)
+    {
+        CreatedAtUtc = createdAtUtc;
+    }
 }

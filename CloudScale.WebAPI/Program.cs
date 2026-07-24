@@ -1,23 +1,49 @@
+using CloudScale.WebAPI.Endpoints.Auth;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Dependency Injection
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddAuthorization();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc(
+        "v1",
+        new()
+        {
+            Title = "CloudScale API",
+            Version = "v1",
+            Description = "CloudScale Learning Platform API"
+        });
+    options.AddSecurityDefinition(
+        "Bearer",
+        new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            Scheme = "Bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+            Description =
+            "Enter JWT token: Bearer {token}"
+        });
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
-app.MapControllers();
+app.MapRegistrationEndpoint();
 
 app.Run();
