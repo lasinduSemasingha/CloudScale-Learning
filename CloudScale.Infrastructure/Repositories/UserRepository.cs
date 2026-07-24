@@ -15,4 +15,17 @@ public class UserRepository : BaseRepository<User>, IUserRepository
         await _context.SaveChangesAsync();
         return user;
     }
+
+    public async Task<User?> GetUserDetailsByEmailOrId(string? email, Guid? Id)
+    {
+        if (email != null)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+        else if (Id != null)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
+        }
+        return null;
+    }
 }

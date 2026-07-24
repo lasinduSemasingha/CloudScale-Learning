@@ -2,4 +2,5 @@
 public interface IUserService
 {
     Task RegisterAsync(UserRegistrationRequestDto request);
+    Task<bool> LoginAsync(UserLoginRequestDto request);
 }
