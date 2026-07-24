@@ -44,6 +44,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.MapLoginEndpoint();
 app.MapRegistrationEndpoint();
 
 app.Run();

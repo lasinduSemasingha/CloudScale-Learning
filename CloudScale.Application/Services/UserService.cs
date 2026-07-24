@@ -8,6 +8,16 @@ public class UserService : IUserService
         _unitOfWork = unitOfWork;
         _passwordHasher = passwordHasher;
     }
+
+    public async Task<bool> LoginAsync(UserLoginRequestDto request)
+    {
+        var user = await _unitOfWork.Users.GetUserDetailsByEmailOrId(request.Email, null);
+        if (user == null)
+            return false;
+
+        return _passwordHasher.VerifyPassword(user.PasswordHash, request.Password);
+    }
+
     public async Task RegisterAsync(UserRegistrationRequestDto request)
     {
         var exists = await _unitOfWork.Users.ExistsAsync(request.Email);
